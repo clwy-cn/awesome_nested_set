@@ -80,7 +80,7 @@ module CollectiveIdea #:nodoc:
 
           def nested_set_scope(options = {})
             order = scope_order_from_options(options)
-            default_scoped.where(options[:conditions]).order(order)
+            (current_scope || default_scoped).where(options[:conditions]).order(order)
           end
 
           def nested_set_scope_without_default_scope(options = {})
